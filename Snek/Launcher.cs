@@ -3,6 +3,9 @@ using Snek.Services;
 
 namespace Snek
 {
+    /// <summary>
+    /// Launches a new game instance.
+    /// </summary>
     class Launcher
     {
         static void Main(string[] args)
