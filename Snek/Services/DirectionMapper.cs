@@ -18,7 +18,7 @@ namespace Snek.Services
                 case ConsoleKey.RightArrow: return Direction.Right;
                 case ConsoleKey.DownArrow: return Direction.Down;
                 case ConsoleKey.LeftArrow: return Direction.Left;
-                default: return Direction.None;
+                default: return Direction.Right;
             }
         }
 
