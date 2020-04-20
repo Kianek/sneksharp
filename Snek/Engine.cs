@@ -5,6 +5,10 @@ using System;
 
 namespace Snek
 {
+    /// <summary>
+    /// The Engine class is responsible for coordinating all of the operations
+    /// between the game's models and services.
+    /// </summary>
     public class Engine
     {
         private ScoreBoard scoreBoard;
@@ -32,6 +36,10 @@ namespace Snek
             inputListener.OnKeyPress += (source, e) => snek.Direction = e.Direction;
         }
 
+        /// <summary>
+        /// Handles the initialization of game-specific options.
+        /// </summary>
+        /// <param name="options">Contains the user's desired game options</param>
         public void Initialize(GameOptions options)
         {
             // Get the map size that will be used for the current game.
@@ -56,6 +64,10 @@ namespace Snek
             food = foodGenerator.Generate(snek.GetSegmentLocations());
         }
 
+        /// <summary>
+        /// Calls the Initialize method, and starts the game loop.
+        /// </summary>
+        /// <param name="options">The user-specified game options</param>
         public void Run(GameOptions options)
         {
             Initialize(options);
@@ -72,16 +84,10 @@ namespace Snek
             Console.ReadLine();
         }
 
-        public void OnTick(Object source, ElapsedEventArgs e)
-        {
-            ExecuteCycle();
-        }
-
-        public void OnDirectionChange(Object source, DirectionEventArgs e)
-        {
-            snek.Direction = e.Direction;
-        }
-
+        /// <summary>
+        /// Renders the game map and invokes MoveSnek, which updates all the data 
+        /// necessary for the next map refresh.
+        /// </summary>
         private void ExecuteCycle()
         {
             RenderMap();
@@ -89,6 +95,10 @@ namespace Snek
             MoveSnek();
         }
 
+        /// <summary>
+        /// Updates the game map with the locations of the snek and its food, as well
+        /// as the user's current score.
+        /// </summary>
         private void RenderMap()
         {
             map.ActivateTiles(MapGenerator.GetActiveTiles(snek, food));
@@ -97,6 +107,10 @@ namespace Snek
             Console.WriteLine(map);
         }
 
+        /// <summary>
+        /// Calculates the the snek's next location, checks for any boundary collisions,
+        /// and checks whether the snek has eaten any food this cycle.
+        /// </summary>
         private void MoveSnek()
         {
             Point previousLocation, newSnakeLocation;
@@ -124,12 +138,20 @@ namespace Snek
             }
         }
 
+        /// <summary>
+        /// A helper method to prettify bounds checking.
+        /// </summary>
+        /// <param name="newLocation">The potential new location of the snek's head</param>
+        /// <returns></returns>
         private bool MovementIsOutOfBounds(Point newLocation)
         {
             return colDetector.PointIsOutOfBounds(newLocation) ||
                 colDetector.IsCollisionInSequence(snek.GetSegmentLocations(), newLocation);
         }
 
+        /// <summary>
+        /// A helper method to end the game and stop the round timer and direction input listener.
+        /// </summary>
         private void EndGame()
         {
             roundStatus.GameOver = true;
