@@ -1,4 +1,3 @@
-using System.Timers;
 using Snek.Models;
 using Snek.Services;
 using System;
@@ -15,7 +14,7 @@ namespace Snek
         private Snek snek;
         private Food food;
         private GameMap map;
-        private RoundStatus roundStatus;
+        private GameStatus gameStatus;
         private int mapSize;
 
         private IRandomPointGenerator randomPointGenerator;
@@ -29,7 +28,7 @@ namespace Snek
         {
             scoreBoard = new ScoreBoard();
             directionMapper = new DirectionMapper();
-            roundStatus = new RoundStatus();
+            gameStatus = new GameStatus();
 
             // Hook up the input listener and set the event handler.
             inputListener = new DirectionInputListener(directionMapper);
@@ -73,7 +72,7 @@ namespace Snek
             Initialize(options);
             timer.Run();
 
-            while (!roundStatus.GameOver)
+            while (!gameStatus.GameOver)
             {
                 inputListener.Listen();
             }
@@ -154,7 +153,7 @@ namespace Snek
         /// </summary>
         private void EndGame()
         {
-            roundStatus.GameOver = true;
+            gameStatus.GameOver = true;
             timer.Stop();
             inputListener.Stop();
         }

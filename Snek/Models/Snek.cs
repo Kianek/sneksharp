@@ -4,6 +4,11 @@ using System.Collections.Generic;
 
 namespace Snek
 {
+    /// <summary>
+    /// Represents the snek! This class is responsible for managing the snek's
+    /// current direction, as well as adding new body segments and updating each segments
+    /// location on the map.
+    /// </summary>
     public class Snek
     {
         public Direction Direction { get; set; } = Direction.Right;
@@ -27,8 +32,11 @@ namespace Snek
         }
 
 
-        // This method wraps UpdateLocation, because a new segment will receive the tail
-        // segment's previous value.
+        /// <summary>
+        /// This method wraps UpdateLocation, because a new segment will receive the tail
+        /// segment's previous value.
+        /// </summary>
+        /// <param name="location">The new location of the head segment.</param>
         public void AddSegment(Point location)
         {
             var newSegment = new Segment(location);
@@ -39,8 +47,16 @@ namespace Snek
             UpdateLocation(location);
         }
 
+        /// <summary>
+        /// Projects the entire body into a list of Points.
+        /// </summary>
+        /// <returns>A list of points</returns>
         public List<Point> GetSegmentLocations() => Body.Select(segment => segment.Location).ToList();
 
+        /// <summary>
+        /// Updates the location of each segment relative to the previous segment.
+        /// </summary>
+        /// <param name="location"></param>
         public void UpdateLocation(Point location)
         {
             // Hold onto the head's previous location,
@@ -58,6 +74,9 @@ namespace Snek
             }
         }
 
+        /// <summary>
+        /// Represents a single segment of the snek's body.
+        /// </summary>
         public class Segment
         {
             public Point Location { get; set; }

@@ -2,6 +2,10 @@ using Snek.Models;
 using System;
 namespace Snek.Services
 {
+    /// <summary>
+    /// Wraps the DirectionMapper class, and communicates with the Engine via events,
+    /// which are raised in response to user direction input.
+    /// </summary>
     public class DirectionInputListener
     {
         private Point previousLocation;
@@ -15,20 +19,24 @@ namespace Snek.Services
         {
             this.mapper = mapper;
             IsListening = false;
-            // TODO: remove this
             previousLocation = new Point();
         }
+
         protected virtual void OnDirectionChange(Object source, DirectionEventArgs e)
         {
             var handler = OnKeyPress;
             handler?.Invoke(this, e);
         }
 
+        /// <summary>
+        /// Starts the input event loop, and invokes the assigned event handler when the user
+        /// presses one of the arrow keys.
+        /// </summary>
         public void Listen()
         {
-            IsListening = true;
             Direction direction;
             Point newLocation;
+            IsListening = true;
             var handler = OnKeyPress;
             while (IsListening)
             {
@@ -39,6 +47,9 @@ namespace Snek.Services
             }
         }
 
+        /// <summary>
+        /// Terminates the event loop by setting IsListening to false.
+        /// </summary>
         public void Stop() => IsListening = false;
     }
 }

@@ -1,5 +1,8 @@
 namespace Snek.Models
 {
+    /// <summary>
+    /// Stores the user's game configuration options.
+    /// </summary>
     public class GameOptions
     {
         public TileStyle TileStyle { get; set; }

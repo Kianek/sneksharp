@@ -2,6 +2,9 @@ using Snek.Models;
 
 namespace Snek.Services
 {
+    /// <summary>
+    /// Provides facilities to build a GameOptions object.
+    /// </summary>
     public class GameOptionsBuilder : IGameOptionsBuilder
     {
         private GameOptions options;
@@ -20,6 +23,10 @@ namespace Snek.Services
 
         public void SetMapSize(MapSize mapSize) => options.MapSize = mapSize;
 
+        /// <summary>
+        /// Returns the current configured GameOptions object, and re-initializes the GameOptions
+        /// </summary>
+        /// <returns>A configured GameOptions object</returns>
         public GameOptions Build()
         {
             // Hold onto the current options object.
@@ -32,6 +39,9 @@ namespace Snek.Services
             return currentOptionsBuild;
         }
 
+        /// <summary>
+        /// Instantiates a new GameOptions object.
+        /// </summary>
         private void InitializeGameOptions()
         {
             if (options == null)

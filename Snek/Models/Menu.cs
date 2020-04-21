@@ -4,6 +4,9 @@ using System.Text.RegularExpressions;
 
 namespace Snek.Models
 {
+    /// <summary>
+    /// Welcomes the user and presents the game configuration options.
+    /// </summary>
     public static class Menu
     {
         public static void Welcome()
@@ -11,6 +14,10 @@ namespace Snek.Models
             Console.WriteLine("*--- Welcome to Snek ---*\n");
         }
 
+        /// <summary>
+        /// Prompts the user to choose a difficulty setting.
+        /// </summary>
+        /// <param name="builder"></param>
         public static void GetDifficulty(IGameOptionsBuilder builder)
         {
             int choice;
@@ -27,6 +34,10 @@ namespace Snek.Models
             builder.SetDifficulty(EnumMapper.GetDifficulty(choice));
         }
 
+        /// <summary>
+        /// Prompts the user to choose a tile style.
+        /// </summary>
+        /// <param name="builder"></param>
         public static void GetTileStyle(IGameOptionsBuilder builder)
         {
             int choice;
@@ -43,6 +54,10 @@ namespace Snek.Models
             builder.SetTileStyle(EnumMapper.GetTileStyle(choice));
         }
 
+        /// <summary>
+        /// Prompts the user to select a map size.
+        /// </summary>
+        /// <param name="builder"></param>
         public static void GetMapSize(IGameOptionsBuilder builder)
         {
             int choice;
@@ -58,6 +73,10 @@ namespace Snek.Models
             builder.SetMapSize(EnumMapper.GetMapSize(choice));
         }
 
+        /// <summary>
+        /// Reads the user's menu options choice, and validates it.
+        /// </summary>
+        /// <returns>An integer value representing the user's choice.</returns>
         private static int ReadChoice()
         {
             var input = Console.ReadLine().Trim();
@@ -73,6 +92,11 @@ namespace Snek.Models
             return Int32.Parse(input);
         }
 
+        /// <summary>
+        /// Uses Regex to check whether a given string contains any non-digit characters.
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
         private static bool IsNonDigit(string value)
         {
             var match = new Regex(@"\D");

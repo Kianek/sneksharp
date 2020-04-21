@@ -2,6 +2,10 @@ using System;
 
 namespace Snek.Models
 {
+    /// <summary>
+    /// Extends the EventArgs class, and contains information relevant to the user's
+    /// direction input. This event is raised by the DirectionMapper.
+    /// </summary>
     public class DirectionEventArgs : EventArgs
     {
         public Direction Direction { get; }

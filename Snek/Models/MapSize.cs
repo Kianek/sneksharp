@@ -1,8 +1,10 @@
 namespace Snek.Models
 {
+    /// <summary>
+    /// Represents the three possible map sizes.
+    /// </summary>
     public enum MapSize
     {
-        None,
         Small,
         Medium,
         Large

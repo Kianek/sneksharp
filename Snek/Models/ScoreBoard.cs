@@ -1,5 +1,8 @@
 namespace Snek.Models
 {
+    /// <summary>
+    /// Represent's the current game instance's scoreboard.
+    /// </summary>
     public class ScoreBoard
     {
         public int Score { get; private set; }

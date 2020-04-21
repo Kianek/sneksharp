@@ -2,6 +2,9 @@ using Snek.Models;
 
 namespace Snek.Services
 {
+    /// <summary>
+    /// Contains methods to convert the integers 1-3 into their corresponding enum value.
+    /// </summary>
     public static class EnumMapper
     {
         public static Difficulty GetDifficulty(int userChoice)

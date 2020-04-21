@@ -24,13 +24,11 @@ namespace Snek.Services
 
         /// <summary>
         /// Clones an existing Point, and then adjusts the clone's coordinates
-        /// relative to the given ConsoleKeyInfo value. If the altered value of the cloned point
-        /// is within bounds, the modified clone
+        /// relative to the given ConsoleKeyInfo value.
         /// </summary>
         /// <param name="previousLocation"></param>
         /// <param name="keyInfo"></param>
         /// <returns>If the altered value is within bounds, returns the updated clone; otherwise, return the unmodified copy</returns>
-        // public Point CalculateNewPosition(Point previousLocation, ConsoleKeyInfo keyInfo)
         public Point CalculateNewPosition(Point previousLocation, Direction direction)
         {
             var point = previousLocation.Clone();

@@ -1,5 +1,8 @@
 namespace Snek.Models
 {
+    /// <summary>
+    /// Represents a single tile on the game map.
+    /// </summary>
     public class GameMapTile
     {
         private TileStyle tileStyle;
@@ -15,6 +18,10 @@ namespace Snek.Models
             IsOccupied = false;
         }
 
+        /// <summary>
+        /// Swaps the whitespace with an asterisk, or vice versa.
+        /// </summary>
+        /// <returns>The current occupied status</returns>
         public bool ToggleOccupied()
         {
             if (!IsOccupied)
@@ -29,12 +36,18 @@ namespace Snek.Models
             return IsOccupied;
         }
 
+        /// <summary>
+        /// Sets the tile's whitespace to the 'o' character, represent food.
+        /// </summary>
         public void PlaceFood()
         {
-            ToggleOccupied();
-            Style = Style.Replace(" ", "o");
+            IsOccupied = true;
+            Style = Style.Replace(Asterisk, "o");
         }
 
+        /// <summary>
+        /// Resets the tile.
+        /// </summary>
         public void Reset()
         {
             Style = GenerateStyle(tileStyle);
@@ -43,6 +56,11 @@ namespace Snek.Models
 
         public override string ToString() => Style;
 
+        /// <summary>
+        /// Sets the tile's style based on the user's choice.
+        /// </summary>
+        /// <param name="style"></param>
+        /// <returns>The string representing the user's chosen style.</returns>
         private string GenerateStyle(TileStyle style)
         {
             switch (style)

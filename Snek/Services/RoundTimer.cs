@@ -1,10 +1,12 @@
 using Snek.Models;
 using System;
-using System.Collections.Generic;
 using System.Timers;
 
 namespace Snek.Services
 {
+    /// <summary>
+    /// This class wraps a Timer, and invokes a callback at a specified interval.
+    /// </summary>
     public class RoundTimer
     {
         private Timer timer;
@@ -23,12 +25,12 @@ namespace Snek.Services
         public RoundTimer(Difficulty difficulty)
         {
             timer = new Timer(SetIntervalByDifficulty(difficulty));
+            timer.Elapsed += OnTickEvent;
         }
 
         public void Run()
         {
             timer.AutoReset = true;
-            timer.Elapsed += OnTickEvent;
             IsEnabled = true;
             timer.Start();
         }

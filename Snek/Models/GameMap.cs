@@ -3,7 +3,7 @@ using System.Collections.Generic;
 namespace Snek.Models
 {
     /// <summary>
-    /// Represents the game map
+    /// Represents the game map.
     /// </summary>
     public class GameMap
     {
@@ -48,6 +48,10 @@ namespace Snek.Models
             InitializeBoard(_style);
         }
 
+        /// <summary>
+        /// Resets the map, and then updates it with the currently activated tiles.
+        /// </summary>
+        /// <param name="activeTiles">An IEnumerable representing the currently active tiles</param>
         public void ActivateTiles(IEnumerable<Point> activeTiles)
         {
             this.Reset();
@@ -61,11 +65,15 @@ namespace Snek.Models
             }
         }
 
+        /// <summary>
+        /// Places food at a specific point on the map.
+        /// </summary>
+        /// <param name="location">The point on the map to place food.</param>
         public void PlaceFood(Point location) => this[location].PlaceFood();
 
 
         /// <summary>
-        /// Reset the board to its original values.
+        /// Resets the board to its original values.
         /// </summary>
         public void Reset()
         {
@@ -78,6 +86,10 @@ namespace Snek.Models
             }
         }
 
+        /// <summary>
+        /// Initializes the map tiles with the given style.
+        /// </summary>
+        /// <param name="style">The style with which to initialize each tile.</param>
         private void InitializeBoard(TileStyle style)
         {
             for (int y = 0; y < MAX_SIZE; y++)

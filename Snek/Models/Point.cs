@@ -4,7 +4,7 @@ namespace Snek.Models
     /// <summary>
     /// Represents a set of x and y coordinates. 
     /// </summary>
-    public class Point : IComparable<Point>, IEquatable<Point>
+    public class Point : IEquatable<Point>
     {
         public int X { get; set; }
         public int Y { get; set; }
@@ -18,36 +18,6 @@ namespace Snek.Models
         public Point Clone() => new Point(X, Y);
 
         public override string ToString() => $"[X: {X}, Y: {Y}]";
-
-        public int CompareTo(Point other)
-        {
-            var difference = (X - other.X) + (Y - other.Y);
-            if (difference == 0)
-            {
-                return 0;
-            }
-            else if (difference < 0)
-            {
-                return -1;
-            }
-            return 1;
-        }
-
-        public static Point operator +(Point one, Point other)
-        {
-            var newX = one.X + other.X;
-            var newY = one.Y + other.Y;
-
-            return new Point(newX, newY);
-        }
-
-        public static Point operator -(Point one, Point other)
-        {
-            var newX = one.X - other.X;
-            var newY = one.Y - other.Y;
-
-            return new Point(newX, newY);
-        }
 
         public static bool operator ==(Point one, Point other)
         {
