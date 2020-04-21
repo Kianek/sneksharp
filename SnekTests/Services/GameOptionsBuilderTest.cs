@@ -41,10 +41,10 @@ namespace SnekTests.Services
         public void CanSetTileStyle()
         {
             var optionsBuilder = new GameOptionsBuilder();
-            optionsBuilder.SetTileStyle(TileStyle.None);
+            optionsBuilder.SetTileStyle(TileStyle.Parentheses);
             var result = optionsBuilder.Build();
 
-            result.TileStyle.Should().Be(TileStyle.None);
+            result.TileStyle.Should().Be(TileStyle.Parentheses);
         }
 
         [Fact]

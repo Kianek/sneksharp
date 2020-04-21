@@ -1,6 +1,5 @@
 using FluentAssertions;
 using Snek.Models;
-using System.Collections.Generic;
 using Xunit;
 
 namespace SnekTests
@@ -13,11 +12,10 @@ namespace SnekTests
 
         public GameMapTileTest()
         {
-            unoccupiedTiles = new string[] { " ", "{ }", "( )", "[ ]" };
-            occupiedTiles = new string[] { "*", "{*}", "(*)", "[*]" };
+            unoccupiedTiles = new string[] { "{ }", "( )", "[ ]" };
+            occupiedTiles = new string[] { "{*}", "(*)", "[*]" };
             styles = new TileStyle[]
             {
-                TileStyle.None,
                 TileStyle.CurlyBraces,
                 TileStyle.Parentheses,
                 TileStyle.SquareBrackets
@@ -34,7 +32,7 @@ namespace SnekTests
                 Test(unoccupiedTiles[i], styles[i]);
             }
 
-            void Test(string expr, TileStyle style = TileStyle.None)
+            void Test(string expr, TileStyle style = TileStyle.SquareBrackets)
             {
                 var result = new GameMapTile(style);
                 result.Style.Should().Be(expr);
