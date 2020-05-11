@@ -1,5 +1,6 @@
-using System;
-namespace Snek.Models
+using Snek.GameMap;
+
+namespace Snek.Entities
 {
     /// <summary>
     /// Represents a food item, and stores its location on the map.

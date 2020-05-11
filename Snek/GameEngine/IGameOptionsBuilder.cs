@@ -1,6 +1,6 @@
-using Snek.Models;
+using Snek.GameMap;
 
-namespace Snek.Services
+namespace Snek.GameEngine
 {
     public interface IGameOptionsBuilder
     {

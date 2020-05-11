@@ -1,5 +1,4 @@
-﻿using Snek.Models;
-using Snek.Services;
+﻿using Snek.GameEngine;
 
 namespace Snek
 {

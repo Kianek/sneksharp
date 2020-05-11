@@ -1,15 +1,16 @@
+using Snek.GameMap;
+using Snek.Input;
 using System.Linq;
-using Snek.Models;
 using System.Collections.Generic;
 
-namespace Snek
+namespace Snek.Entities
 {
     /// <summary>
     /// Represents the snek! This class is responsible for managing the snek's
     /// current direction, as well as adding new body segments and updating each segments
     /// location on the map.
     /// </summary>
-    public class Snek
+    public class Snekk
     {
         public Direction Direction { get; set; } = Direction.Right;
         public int Length { get; set; }
@@ -17,7 +18,7 @@ namespace Snek
         public Segment Tail { get; private set; }
         public Queue<Segment> Body { get; } = new Queue<Segment>();
 
-        public Snek(Point startingPosition)
+        public Snekk(Point startingPosition)
         {
             Head = new Segment(startingPosition);
 

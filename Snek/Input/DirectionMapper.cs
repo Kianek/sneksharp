@@ -1,7 +1,7 @@
+using Snek.GameMap;
 using System;
-using Snek.Models;
 
-namespace Snek.Services
+namespace Snek.Input
 {
     public class DirectionMapper
     {

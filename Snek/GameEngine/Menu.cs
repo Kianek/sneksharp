@@ -2,7 +2,7 @@ using Snek.Services;
 using System;
 using System.Text.RegularExpressions;
 
-namespace Snek.Models
+namespace Snek.GameEngine
 {
     /// <summary>
     /// Welcomes the user and presents the game configuration options.

@@ -1,16 +1,16 @@
 using FluentAssertions;
-using Snek.Models;
+using Snek.GameMap;
 using Xunit;
 
 namespace SnekTests
 {
-    public class GameMapTileTest
+    public class MapTileTest
     {
         private string[] unoccupiedTiles;
         private string[] occupiedTiles;
         private TileStyle[] styles;
 
-        public GameMapTileTest()
+        public MapTileTest()
         {
             unoccupiedTiles = new string[] { "{ }", "( )", "[ ]" };
             occupiedTiles = new string[] { "{*}", "(*)", "[*]" };
@@ -34,7 +34,7 @@ namespace SnekTests
 
             void Test(string expr, TileStyle style = TileStyle.SquareBrackets)
             {
-                var result = new GameMapTile(style);
+                var result = new MapTile(style);
                 result.Style.Should().Be(expr);
             }
         }
@@ -42,7 +42,7 @@ namespace SnekTests
         [Fact]
         public void ToggleOccupied_AddSymbol()
         {
-            GameMapTile tile;
+            MapTile tile;
 
             for (int i = 0; i < styles.Length; i++)
             {
@@ -52,16 +52,16 @@ namespace SnekTests
                 tile.Style.Should().Contain("*", "the tile is occupied");
             }
 
-            GameMapTile GenerateTile(TileStyle style)
+            MapTile GenerateTile(TileStyle style)
             {
-                return new GameMapTile(style);
+                return new MapTile(style);
             }
         }
 
         [Fact]
         public void ToggleOccupied_RemoveSymbol()
         {
-            GameMapTile tile;
+            MapTile tile;
 
             for (int i = 0; i < styles.Length; i++)
             {
@@ -73,9 +73,9 @@ namespace SnekTests
                 tile.Style.Should().NotContain("*", "the tile is not occupied");
             }
 
-            GameMapTile GenerateOccupiedTile(TileStyle style)
+            MapTile GenerateOccupiedTile(TileStyle style)
             {
-                var result = new GameMapTile(style);
+                var result = new MapTile(style);
                 result.ToggleOccupied();
                 return result;
             }

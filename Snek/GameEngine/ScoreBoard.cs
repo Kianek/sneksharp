@@ -1,4 +1,4 @@
-namespace Snek.Models
+namespace Snek.GameEngine
 {
     /// <summary>
     /// Represent's the current game instance's scoreboard.

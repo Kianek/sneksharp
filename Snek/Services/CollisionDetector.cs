@@ -1,5 +1,5 @@
+using Snek.GameMap;
 using System.Linq;
-using Snek.Models;
 using System.Collections.Generic;
 
 namespace Snek.Services

@@ -1,8 +1,8 @@
-using Snek.Models;
+using Snek.Entities;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Snek.Services
+namespace Snek.GameMap
 {
     /// <summary>
     /// Handles GameMap creation and configuration.
@@ -15,7 +15,7 @@ namespace Snek.Services
         /// <param name="mapSize"></param>
         /// <param name="tileStyle"></param>
         /// <returns></returns>
-        public static GameMap GenerateMap(int mapSize, TileStyle tileStyle) => new GameMap(mapSize, tileStyle);
+        public static Map GenerateMap(int mapSize, TileStyle tileStyle) => new Map(mapSize, tileStyle);
 
         /// <summary>
         /// Determines the snek's starting location on the map.
@@ -46,7 +46,7 @@ namespace Snek.Services
         /// <param name="snek"></param>
         /// <param name="food"></param>
         /// <returns></returns>
-        public static List<Point> GetActiveTiles(Snek snek, Food food)
+        public static List<Point> GetActiveTiles(Snekk snek, Food food)
         {
             var activeTiles = new List<Point>() { food.Location };
             var snakeTiles = snek.Body.Select(segment => segment.Location).ToList();

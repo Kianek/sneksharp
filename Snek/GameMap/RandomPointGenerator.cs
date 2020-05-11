@@ -1,7 +1,6 @@
-using Snek.Models;
 using System;
 
-namespace Snek.Services
+namespace Snek.GameMap
 {
     /// <summary>
     /// This class is responsible for generating random Points within the bounds of

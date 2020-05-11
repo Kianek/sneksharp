@@ -1,8 +1,10 @@
-using Snek.Models;
+using Snek.Entities;
+using Snek.GameMap;
+using Snek.Input;
 using Snek.Services;
 using System;
 
-namespace Snek
+namespace Snek.GameEngine
 {
     /// <summary>
     /// The Engine class is responsible for coordinating all of the operations
@@ -11,9 +13,9 @@ namespace Snek
     public class Engine
     {
         private ScoreBoard scoreBoard;
-        private Snek snek;
+        private Snekk snek;
         private Food food;
-        private GameMap map;
+        private Map map;
         private GameStatus gameStatus;
         private int mapSize;
 
@@ -59,7 +61,7 @@ namespace Snek
             map = MapGenerator.GenerateMap(mapSize, options.TileStyle);
 
             // Place the snek and food at their initial locations.
-            snek = new Snek(MapGenerator.GenerateStartingPoint(mapSize));
+            snek = new Snekk(MapGenerator.GenerateStartingPoint(mapSize));
             food = foodGenerator.Generate(snek.GetSegmentLocations());
         }
 

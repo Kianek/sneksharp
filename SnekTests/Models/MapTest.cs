@@ -1,16 +1,16 @@
 using FluentAssertions;
-using Snek.Models;
+using Snek.GameMap;
 using Xunit;
 
 namespace SnekTests.Models
 {
-    public class GameMapTest
+    public class MapTest
     {
         [Fact]
         public void CanGenerateDefaultGameMap()
         {
             // Map grid is 10x10 by default
-            var result = new GameMap();
+            var result = new Map();
 
             int maxSize = result.MAX_SIZE;
             int sizeSquared = maxSize * maxSize;
@@ -23,7 +23,7 @@ namespace SnekTests.Models
             // Map grid is 10x10 by default
             var maxSize = 5;
             var sizeSquared = maxSize * maxSize;
-            var result = new GameMap(maxSize);
+            var result = new Map(maxSize);
 
 
             result.NumOfTiles.Should().Be(sizeSquared, $"{maxSize}^2 equals: {sizeSquared}");
@@ -34,13 +34,13 @@ namespace SnekTests.Models
         {
             // Create map of 25 tiles
             var maxSize = 5;
-            var map = new GameMap(maxSize);
+            var map = new Map(maxSize);
 
             for (int x = 0; x < maxSize; x++)
             {
                 for (int y = 0; y < maxSize; y++)
                 {
-                    map.Board[x, y].Should().BeOfType<GameMapTile>("the constructor should have initialized the game board");
+                    map.Board[x, y].Should().BeOfType<MapTile>("the constructor should have initialized the game board");
                 }
             }
         }
@@ -49,7 +49,7 @@ namespace SnekTests.Models
         public void CanConvertSelfToFormattedString()
         {
             var maxSize = 2;
-            var map = new GameMap(maxSize, TileStyle.SquareBrackets);
+            var map = new Map(maxSize, TileStyle.SquareBrackets);
 
             var board = map.ToString();
             var expected = "[ ][ ]\n[ ][ ]\n";
@@ -60,7 +60,7 @@ namespace SnekTests.Models
         public void CanResetMap()
         {
             var maxSize = 2;
-            var map = new GameMap(maxSize, TileStyle.SquareBrackets);
+            var map = new Map(maxSize, TileStyle.SquareBrackets);
 
             // Toggle each map tile.
             for (int x = 0; x < maxSize; x++)

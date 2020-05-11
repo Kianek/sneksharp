@@ -1,9 +1,9 @@
-namespace Snek.Models
+namespace Snek.GameMap
 {
     /// <summary>
     /// Represents a single tile on the game map.
     /// </summary>
-    public class GameMapTile
+    public class MapTile
     {
         private TileStyle tileStyle;
         public static string Asterisk { get; } = "*";
@@ -11,7 +11,7 @@ namespace Snek.Models
         public string Style { get; set; }
         public bool IsOccupied { get; private set; }
 
-        public GameMapTile(TileStyle style = TileStyle.SquareBrackets)
+        public MapTile(TileStyle style = TileStyle.SquareBrackets)
         {
             tileStyle = style;
             Style = GenerateStyle(tileStyle);

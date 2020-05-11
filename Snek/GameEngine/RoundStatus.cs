@@ -1,4 +1,4 @@
-namespace Snek.Models
+namespace Snek.GameEngine
 {
     /// <summary>
     /// Represents the current game instance's status, as well as whether the 

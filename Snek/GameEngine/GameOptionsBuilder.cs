@@ -1,6 +1,6 @@
-using Snek.Models;
+using Snek.GameMap;
 
-namespace Snek.Services
+namespace Snek.GameEngine
 {
     /// <summary>
     /// Provides facilities to build a GameOptions object.

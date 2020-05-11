@@ -1,4 +1,4 @@
-namespace Snek.Models
+namespace Snek.Input
 {
     /// <summary>
     /// Represents the four directions that the snek can be facing.

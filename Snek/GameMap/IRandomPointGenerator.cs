@@ -1,6 +1,5 @@
-using Snek.Models;
 
-namespace Snek.Services
+namespace Snek.GameMap
 {
     public interface IRandomPointGenerator
     {

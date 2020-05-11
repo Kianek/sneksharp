@@ -1,6 +1,7 @@
+using Snek.GameMap;
 using System;
 
-namespace Snek.Models
+namespace Snek.Input
 {
     /// <summary>
     /// Extends the EventArgs class, and contains information relevant to the user's

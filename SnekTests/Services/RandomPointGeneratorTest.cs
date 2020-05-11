@@ -1,6 +1,5 @@
 using FluentAssertions;
-using Snek.Models;
-using Snek.Services;
+using Snek.GameMap;
 using Xunit;
 
 namespace SnekTests

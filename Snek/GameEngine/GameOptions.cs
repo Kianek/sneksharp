@@ -1,4 +1,6 @@
-namespace Snek.Models
+using Snek.GameMap;
+
+namespace Snek.GameEngine
 {
     /// <summary>
     /// Stores the user's game configuration options.

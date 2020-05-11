@@ -1,11 +1,11 @@
 using System.Collections.Generic;
 
-namespace Snek.Models
+namespace Snek.GameMap
 {
     /// <summary>
     /// Represents the game map.
     /// </summary>
-    public class GameMap
+    public class Map
     {
         private TileStyle _style;
         public int MIN_SIZE { get; } = 0;
@@ -21,28 +21,28 @@ namespace Snek.Models
         /// <value>
         /// A uniform multidimensional array representing the game board.
         /// </value>
-        public GameMapTile[,] Board { get; }
+        public MapTile[,] Board { get; }
 
         /// <summary>
         /// Indexer accepting two integers.
         /// </summary>
-        public GameMapTile this[int x, int y] => Board[x, y];
+        public MapTile this[int x, int y] => Board[x, y];
 
         /// <summary>
         /// Indexer accepting a Point struct.
         /// </summary>
-        public GameMapTile this[Point point] => Board[point.X, point.Y];
+        public MapTile this[Point point] => Board[point.X, point.Y];
 
         /// <summary>
         /// The constructor sets the max size of the game board, and initializes it.
         /// </summary>
         /// <param name="size">The max length of each side of the board</param>
         /// <param name="style">Determines the style of each map tile.</param>
-        public GameMap(int size = 10, TileStyle style = TileStyle.SquareBrackets)
+        public Map(int size = 10, TileStyle style = TileStyle.SquareBrackets)
         {
             MAX_SIZE = size;
             _style = style;
-            Board = new GameMapTile[MAX_SIZE, MAX_SIZE];
+            Board = new MapTile[MAX_SIZE, MAX_SIZE];
 
             // Initialize the game board
             InitializeBoard(_style);
@@ -96,7 +96,7 @@ namespace Snek.Models
             {
                 for (int x = 0; x < MAX_SIZE; x++)
                 {
-                    Board[x, y] = new GameMapTile(style);
+                    Board[x, y] = new MapTile(style);
                 }
             }
         }

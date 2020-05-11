@@ -1,5 +1,5 @@
 using FluentAssertions;
-using Snek.Models;
+using Snek.GameEngine;
 using Xunit;
 
 namespace SnekTests.Models

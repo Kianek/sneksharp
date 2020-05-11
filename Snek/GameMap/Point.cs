@@ -1,5 +1,5 @@
 using System;
-namespace Snek.Models
+namespace Snek.GameMap
 {
     /// <summary>
     /// Represents a set of x and y coordinates. 

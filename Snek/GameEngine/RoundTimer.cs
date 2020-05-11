@@ -1,8 +1,7 @@
-using Snek.Models;
 using System;
 using System.Timers;
 
-namespace Snek.Services
+namespace Snek.GameEngine
 {
     /// <summary>
     /// This class wraps a Timer, and invokes a callback at a specified interval.

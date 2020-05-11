@@ -1,4 +1,4 @@
-namespace Snek.Models
+namespace Snek.GameMap
 {
     /// <summary>
     /// Represents the three possible map sizes.

@@ -1,7 +1,8 @@
-using Snek.Models;
+using Snek.GameMap;
+using Snek.Entities;
 using System.Collections.Generic;
 
-namespace Snek.Services
+namespace Snek.GameEngine
 {
     /// <summary>
     /// Generates a new location at which to place Food.

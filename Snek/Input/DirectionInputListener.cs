@@ -1,6 +1,7 @@
-using Snek.Models;
+using Snek.GameMap;
 using System;
-namespace Snek.Services
+
+namespace Snek.Input
 {
     /// <summary>
     /// Wraps the DirectionMapper class, and communicates with the Engine via events,
