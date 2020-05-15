@@ -10,7 +10,7 @@ namespace Snek.GameEngine
     {
         private Timer timer;
         private readonly int MINIMUM_INTERVAL = 300;
-        private readonly int easySetting = 8000;
+        private readonly int easySetting = 800;
         private readonly int normalSetting = 600;
         private readonly int hardSetting = 500;
         private readonly int decrementStep = 15;
